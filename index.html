@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Estructuras algorítmicas con JavaScript — Educación y práctica docente</title>
+  <style>
+    :root{ --bg:#0f1724; --card:#0b1220; --accent:#60a5fa; --muted:#94a3b8; --glass: rgba(255,255,255,0.03)}
+    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:linear-gradient(180deg,#071124 0%, #07162a 100%); color:#e6eef8; margin:0; padding:24px}
+    .container{max-width:1000px;margin:0 auto}
+    header{display:flex;gap:16px;align-items:center}
+    h1{font-size:1.6rem;margin:0}
+    p.lead{color:var(--muted);margin:8px 0 24px}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
+    .card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .mini{font-size:0.85rem;color:var(--muted)}
+    pre{background:var(--glass);padding:12px;border-radius:8px;overflow:auto;color:#dbeafe}
+    button, .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:8px;cursor:pointer}
+    .example{margin-top:12px}
+    label{display:block;margin-top:8px;font-size:0.9rem;color:var(--muted)}
+    input, select, textarea{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    footer{margin-top:20px;color:var(--muted);font-size:0.85rem}
+    ul{padding-left:1.1rem}
+    .success{color:#bbf7d0}
+    .danger{color:#fecaca}
+    .example-output{background:linear-gradient(180deg,rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:10px;border-radius:8px;margin-top:10px; min-height:40px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Estructuras algorítmicas con JavaScript</h1>
+        <div class="mini">Material para educación y práctica docente — actividades interactivas listas para el aula</div>
+      </div>
+    </header>
+
+    <p class="lead">Esta página muestra ejemplos claros y actividades prácticas para enseñar las estructuras algorítmicas (secuencia, selección y repetición) usando JavaScript. Incluye: explicaciones, ejemplos interactivos, ejercicios para estudiantes y notas pedagógicas para el docente.</p>
+
+    <div class="grid">
+      <main class="card">
+        <h2>Objetivos</h2>
+        <ul>
+          <li>Reconocer y aplicar las estructuras algorítmicas básicas: secuencia, selección y repetición.</li>
+          <li>Diseñar pequeñas actividades prácticas para estudiantes de secundaria y primeros semestres universitarios.</li>
+          <li>Relacionar la lógica algorítmica con situaciones reales en el aula.</li>
+        </ul>
+
+        <hr />
+        <h2>1) Secuencia (instrucciones paso a paso)</h2>
+        <p class="mini">La estructura secuencial ejecuta instrucciones de forma lineal. Ejemplo clásico: calcular el promedio de tres notas.</p>
+
+        <div class="example card">
+          <strong>Ejemplo interactivo: Calculadora de promedio</strong>
+          <label for="n1">Nota 1</label>
+          <input id="n1" type="number" step="0.1" placeholder="0 - 5" value="3.5">
+          <label for="n2">Nota 2</label>
+          <input id="n2" type="number" step="0.1" placeholder="0 - 5" value="4">
+          <label for="n3">Nota 3</label>
+          <input id="n3" type="number" step="0.1" placeholder="0 - 5" value="4.2">
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button id="calcProm">Calcular promedio</button>
+            <button id="limpiarProm" class="btn">Limpiar</button>
+          </div>
+          <div id="outProm" class="example-output"></div>
+        </div>
+
+        <pre><code>// Pseudocódigo (secuencia)
+// 1. Leer n1, n2, n3
+// 2. promedio = (n1 + n2 + n3) / 3
+// 3. mostrar promedio
+
+// Implementación en JS (ver la página para la versión interactiva)
+</code></pre>
+
+        <hr />
+        <h2>2) Selección (decisiones: if / switch)</h2>
+        <p class="mini">La selección permite que un algoritmo tome decisiones. Ejemplo: clasificar el promedio en una escala (A, B, C, D).</p>
+
+        <div class="example card">
+          <strong>Ejemplo interactivo: Clasificación por promedio</strong>
+          <label for="prom2">Promedio</label>
+          <input id="prom2" type="number" step="0.1" value="4">
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button id="clasificar">Clasificar</button>
+            <button id="limpiarClas" class="btn">Limpiar</button>
+          </div>
+          <div id="outClas" class="example-output"></div>
+        </div>
+
+        <pre><code>// Ejemplo de selección
+function clasificar(promedio){
+  if(promedio >= 4.5) return 'A';
+  else if(promedio >= 3.5) return 'B';
+  else if(promedio >= 2.5) return 'C';
+  else return 'D';
+}
+</code></pre>
+
+        <hr />
+        <h2>3) Repetición (bucles: for, while, do-while)</h2>
+        <p class="mini">Los bucles permiten repetir acciones. Ejemplo: sumar los números pares menores que N.</p>
+
+        <div class="example card">
+          <strong>Ejemplo interactivo: Suma de pares</strong>
+          <label for="nMax">Número N</label>
+          <input id="nMax" type="number" value="10">
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button id="sumPares">Calcular suma</button>
+            <button id="limpiarPares" class="btn">Limpiar</button>
+          </div>
+          <div id="outPares" class="example-output"></div>
+        </div>
+
+        <pre><code>// Ejemplo con for
+function sumaPares(n){
+  let suma = 0;
+  for(let i=0; i<=n; i++){
+    if(i % 2 === 0) suma += i;
+  }
+  return suma;
+}
+</code></pre>
+
+        <hr />
+        <h2>4) Estructuras de datos básicas y funciones</h2>
+        <p class="mini">Mostrar cómo combinar arrays y funciones para resolver problemas comunes (lista de estudiantes, ordenar, buscar).</p>
+
+        <div class="example card">
+          <strong>Ejemplo interactivo: Lista de estudiantes</strong>
+          <label for="alumno">Nombre del estudiante (añadir)</label>
+          <input id="alumno" placeholder="Mariana">
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button id="addAlumno">Añadir a la lista</button>
+            <button id="verLista" class="btn">Ver lista</button>
+            <button id="limpiarLista" class="btn">Limpiar lista</button>
+          </div>
+          <div id="outLista" class="example-output"></div>
+        </div>
+
+        <pre><code>// Ejemplo: operaciones con arrays
+const estudiantes = [];
+function agregar(nombre){
+  estudiantes.push(nombre);
+}
+function buscar(nombre){
+  return estudiantes.indexOf(nombre) !== -1; // true/false
+}
+</code></pre>
+
+        <hr />
+        <h2>Actividades para el aula</h2>
+        <ol>
+          <li><strong>Mini-lab (20–30 min):</strong> En parejas, los estudiantes implementan la calculadora de promedio y la clasifican. Entregar captura de pantalla y pseudocódigo.</li>
+          <li><strong>Reto (30–40 min):</strong> Crear un programa que reciba edades de un grupo y calcule la moda, la media y la mediana. Discutir en clase las decisiones algorítmicas.</li>
+          <li><strong>Evaluación formativa:</strong> Pequeñas tareas con retroalimentación inmediata: completar tablas de ejecución (trace table) para algoritmos dados.</li>
+        </ol>
+
+        <h3>Notas pedagógicas</h3>
+        <ul>
+          <li>Usar ejemplos cercanos al estudiante (notas, listas de música, asistentes en el colegio) para motivar.</li>
+          <li>Combinar pseudocódigo y código real: primero pensar la lógica en lenguaje natural, luego programarla.</li>
+          <li>Promover la lectura de trazas (trace tables) para que los estudiantes entiendan cómo cambian las variables.</li>
+        </ul>
+
+        <hr />
+        <h2>Material para evaluación</h2>
+        <p class="mini">Ejemplo de rúbrica corta para la actividad de promedio (total 10 puntos):</p>
+        <ul>
+          <li>Correctitud del resultado — 4 puntos</li>
+          <li>Pseudocódigo claro — 3 puntos</li>
+          <li>Buenas prácticas (nombres, comentarios) — 2 puntos</li>
+          <li>Presentación y explicación oral — 1 punto</li>
+        </ul>
+
+        <footer>
+          <div class="mini">Puedes copiar este archivo a tu máquina y abrirlo en un navegador. Si quieres, lo adapto a un formato de presentación o a ejercicios autocorregibles con almacenamiento local.</div>
+        </footer>
+      </main>
+
+      <aside class="card">
+        <h3>Resumen rápido</h3>
+        <p class="mini">Secuencia, selección y repetición son las piezas básicas para el pensamiento algorítmico. Este recurso integra teoría, interacción y propuestas prácticas para docentes.</p>
+
+        <h4>Recursos didácticos</h4>
+        <ul>
+          <li>Trace tables (plantilla)</li>
+          <li>Guía de preguntas socráticas para la evaluación</li>
+          <li>Plantilla de rúbrica editable</li>
+        </ul>
+
+        <h4>Consejos para el docente</h4>
+        <ul>
+          <li>Comenzar con ejemplos sin código (diagrama de flujo/pseudocódigo).</li>
+          <li>Mostrar errores habituales: índices fuera de rango, bucles infinitos, condiciones mal formuladas.</li>
+          <li>Fomentar la colaboración y la explicación entre pares.</li>
+        </ul>
+
+        <hr />
+        <h4>Atajos rápidos (JS)</h4>
+        <pre><code>// forEach
+[1,2,3].forEach(x =&gt; console.log(x));
+// filter
+[1,2,3,4].filter(x =&gt; x%2===0);
+// map
+[1,2,3].map(x =&gt; x*2);
+</code></pre>
+
+        <div class="mini">Versión corta: este recurso es ideal para una sesión práctica (45–60 min) donde los estudiantes codifiquen y discutan sus soluciones.</div>
+      </aside>
+    </div>
+
+    <!-- JavaScript interactivo: aquí van los manejadores para los ejemplos -->
+    <script>
+      // --- Promedio (secuencia) ---
+      const n1 = document.getElementById('n1');
+      const n2 = document.getElementById('n2');
+      const n3 = document.getElementById('n3');
+      const calcProm = document.getElementById('calcProm');
+      const limpiarProm = document.getElementById('limpiarProm');
+      const outProm = document.getElementById('outProm');
+
+      function calcularPromedio(){
+        const a = parseFloat(n1.value) || 0;
+        const b = parseFloat(n2.value) || 0;
+        const c = parseFloat(n3.value) || 0;
+        // Secuencia de pasos
+        const suma = a + b + c;
+        const promedio = +(suma / 3).toFixed(2);
+        return {a,b,c,suma,promedio};
+      }
+
+      calcProm.addEventListener('click', ()=>{
+        const res = calcularPromedio();
+        outProm.innerHTML = `Notas: ${res.a}, ${res.b}, ${res.c} <br> Suma = ${res.suma} <br> <strong>Promedio = ${res.promedio}</strong>`;
+      });
+      limpiarProm.addEventListener('click', ()=>{ n1.value=''; n2.value=''; n3.value=''; outProm.innerHTML=''; });
+
+      // --- Clasificación (selección) ---
+      const prom2 = document.getElementById('prom2');
+      const clasificarBtn = document.getElementById('clasificar');
+      const limpiarClas = document.getElementById('limpiarClas');
+      const outClas = document.getElementById('outClas');
+
+      function clasificar(promedio){
+        // Ejemplo de decisión con if/else
+        if(promedio >= 4.5) return {nota:'A', msg:'Excelente ✔️'};
+        else if(promedio >= 3.5) return {nota:'B', msg:'Bien — con margen de mejora'};
+        else if(promedio >= 2.5) return {nota:'C', msg:'Suficiente — reforzar contenidos'};
+        else return {nota:'D', msg:'Insuficiente — requiere apoyo'};
+      }
+
+      clasificarBtn.addEventListener('click', ()=>{
+        const p = parseFloat(prom2.value) || 0;
+        const r = clasificar(p);
+        outClas.innerHTML = `Promedio = ${p} =&gt; <strong>${r.nota}</strong> — ${r.msg}`;
+      });
+      limpiarClas.addEventListener('click', ()=>{ prom2.value=''; outClas.innerHTML=''; });
+
+      // --- Suma de pares (repetición) ---
+      const nMax = document.getElementById('nMax');
+      const sumPares = document.getElementById('sumPares');
+      const limpiarPares = document.getElementById('limpiarPares');
+      const outPares = document.getElementById('outPares');
+
+      function sumaPares(n){
+        let suma = 0;
+        // Ejemplo de bucle for y condición interna
+        for(let i=0; i<=n; i++){
+          if(i % 2 === 0) suma += i;
+        }
+        return suma;
+      }
+
+      sumPares.addEventListener('click', ()=>{
+        const n = parseInt(nMax.value) || 0;
+        if(n < 0){ outPares.innerHTML = '<span class="danger">Ingrese un número positivo</span>'; return; }
+        const res = sumaPares(n);
+        outPares.innerHTML = `Suma de pares entre 0 y ${n} = <strong>${res}</strong>`;
+      });
+      limpiarPares.addEventListener('click', ()=>{ nMax.value=''; outPares.innerHTML=''; });
+
+      // --- Lista de estudiantes (arrays y funciones) ---
+      const alumno = document.getElementById('alumno');
+      const addAlumno = document.getElementById('addAlumno');
+      const verLista = document.getElementById('verLista');
+      const limpiarLista = document.getElementById('limpiarLista');
+      const outLista = document.getElementById('outLista');
+
+      const estudiantes = [];
+      addAlumno.addEventListener('click', ()=>{
+        const nombre = (alumno.value || '').trim();
+        if(!nombre){ outLista.innerHTML = '<span class="danger">Ingrese un nombre válido</span>'; return; }
+        estudiantes.push(nombre);
+        outLista.innerHTML = `<span class="success">${nombre} agregado. Total: ${estudiantes.length} estudiantes.</span>`;
+        alumno.value='';
+      });
+
+      verLista.addEventListener('click', ()=>{
+        if(estudiantes.length === 0){ outLista.innerHTML = '<span class="mini">La lista está vacía</span>'; return; }
+        // Mostrar índice y nombre (tabla simple)
+        let html = '<ol>' + estudiantes.map(s => `<li>${s}</li>`).join('') + '</ol>';
+        outLista.innerHTML = html;
+      });
+      limpiarLista.addEventListener('click', ()=>{ estudiantes.length = 0; outLista.innerHTML = ''; alumno.value=''; });
+
+      // --- Función extra: traza de ejecución (trace table) ---
+      // Esta utilidad crea una tabla de valores para i y suma (útil para explicar paso a paso)
+      function generarTraza(n){
+        let suma = 0;
+        const filas = [];
+        for(let i=0;i<=n;i++){
+          if(i%2===0) suma += i;
+          filas.push({i, suma});
+        }
+        return filas; // array de objetos {i, suma}
+      }
+
+      // Ejemplo de uso en consola (docencia):
+      // console.table(generarTraza(6));
+
+    </script>
+  </div>
+</body>
+</html>
